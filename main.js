@@ -1,15 +1,15 @@
 var canvas;
-var image;
+var imagem;
 
 function preload(){
-    image=loadImage("dog_cat.jpg");
+    imagem=loadImage("dog_cat.jpg");
 }
 function setup(){
     canvas=createCanvas(640, 420);
     canvas.center();
 }
 function draw(){
-    image(image, 0, 0, 640, 420);
+    image(imagem, 0, 0, 640, 420);
     fill("red");
     text("cachorro", 45, 75);
     noFill();
