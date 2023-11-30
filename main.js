@@ -2,6 +2,7 @@ var canvas;
 var imagem;
 var object_detector;
 var Status="";
+var objects=[];
 
 function preload(){
     imagem=loadImage("dog_cat.jpg");
@@ -26,15 +27,15 @@ function got_results(error, results){
 }
 function draw(){
     image(imagem, 0, 0, 640, 420);
-    fill("red");
-    text("cachorro", 45, 75);
-    noFill();
-    stroke("yellow");
-    rect(30, 60, 450, 350);
-
-    fill("blue");
-    text("gato", 320, 120);
-    noFill();
-    stroke("blue");
-    rect(300, 90, 270, 320);
+    if(Status!=""){
+        for(var o=0; o<objects.length; o++){
+            document.getElementById("status").innerHTML="status: objeto detectado";
+            var precisao=floor(objects[o].confidence*100);
+            fill("blue");
+            text(objects[o].label+" "+precisao+"%", objects[o].x, objects[o].y);
+            noFill();
+            stroke("blue");
+            rect(objects[o].x, objects[o].y, objects[o].width,  objects[o].height);
+        }
+    }
 }
