@@ -28,7 +28,7 @@ function got_results(error, results){
 }
 function draw(){
     image(imagem, 0, 0, 640, 420);
-    if(Status!=""){
+    if(Status!=" "){
         for(var o=0; o<objects.length; o++){
             document.getElementById("status").innerHTML="status: objeto detectado";
             var precisao=floor(objects[o].confidence*100);
