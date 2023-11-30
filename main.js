@@ -23,6 +23,7 @@ function got_results(error, results){
         console.error(error);
     }   else{
         console.log(results);
+        objects=results;
     }
 }
 function draw(){
